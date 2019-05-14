@@ -21,6 +21,13 @@ namespace Employment
             var employees = (List <Employee>)db.Query<Employee>(Sqlstring);
             return employees;
         }
+
+        public void AddToPension()
+        {
+            IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["EmploymentConnection"].ConnectionString);
+            db.Execute(@"exec add_to_employee_pension");
+            
+        } 
     }
 
  

@@ -48,6 +48,19 @@ namespace Employment
                 }
                 else if (outputMessage == "Adding 5% of Salary to pension fund")
                 {
+                    var employees = new Employee();
+                    employees.AddToPension();
+
+                    var listemployees = employees.GetEmployeeList();
+
+                    foreach (var employee in listemployees)
+                    {
+                        Console.WriteLine("Name: " + employee.Name);
+                        Console.WriteLine("Salary: £" + employee.Salary);
+                        Console.WriteLine("Pension Fund Total: £" + employee.Pension_Fund_Total);
+                        Console.WriteLine("Pension Provider: " + employee.Provider_Name);
+                        Console.WriteLine();
+                    }
                 }
             }
             else
