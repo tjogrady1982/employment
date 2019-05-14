@@ -66,7 +66,7 @@ namespace Employment
             else
             {
                 Console.WriteLine("This is not a valid input. Please select either 1 or 2");
-                
+
             }
 
             Console.ReadLine();

@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 using Dapper;
 
 
@@ -14,21 +15,21 @@ namespace Employment
         public decimal Pension_Fund_Total { get; set; }
         public string Provider_Name { get; set; }
 
+        public IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["EmploymentConnection"].ConnectionString);
+
         public List<Employee> GetEmployeeList()
         {
-            IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["EmploymentConnection"].ConnectionString);
             string Sqlstring = "Select * from employees_with_pensions";
-            var employees = (List <Employee>)db.Query<Employee>(Sqlstring);
+            var employees = (List<Employee>)db.Query<Employee>(Sqlstring);
             return employees;
         }
 
         public void AddToPension()
         {
-            IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["EmploymentConnection"].ConnectionString);
             db.Execute(@"exec add_to_employee_pension");
-            
-        } 
+
+        }
     }
 
- 
+
 }
