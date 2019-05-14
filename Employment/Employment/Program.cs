@@ -29,14 +29,34 @@ namespace Employment
                 var process = new ValidateInput();
                 var outputMessage = process.ValidationMessage(value);
                 Console.WriteLine(outputMessage);
-                Console.ReadLine();
+                //Console.ReadLine();
 
+                if (outputMessage == "List of Employees")
+                {
+                    var employees = new Employee();
+                    var listemployees = employees.GetEmployeeList();
+
+                    foreach (var employee in listemployees)
+                    {
+                        Console.WriteLine("Name: " + employee.Name);
+                        Console.WriteLine("Salary: £" + employee.Salary);
+                        Console.WriteLine("Pension Fund Total: £" + employee.PensionFundTotal);
+                        Console.WriteLine("Pension Provider: " + employee.ProviderName);
+                        Console.WriteLine();
+                    }
+
+                }
+                else if (outputMessage == "Adding 5% of Salary to pension fund")
+                {
+                }
             }
             else
             {
                 Console.WriteLine("This is not a valid input. Please select either 1 or 2");
-                Console.ReadLine();
+                
             }
+
+            Console.ReadLine();
         }
     }
 }
