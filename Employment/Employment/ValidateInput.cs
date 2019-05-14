@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Employment
 {
-    public class ProcessInput
+    public class ValidateInput
     {
-        public string ProcessMessage(int value)
+        public string ValidationMessage(int value)
         {
             if (value == 1)
             {

@@ -26,8 +26,8 @@ namespace Employment
             //check validity of input
             if (int.TryParse(input, out int value))
             {
-                var process = new ProcessInput();
-                var outputMessage = process.ProcessMessage(value);
+                var process = new ValidateInput();
+                var outputMessage = process.ValidationMessage(value);
                 Console.WriteLine(outputMessage);
                 Console.ReadLine();
 
