@@ -11,8 +11,8 @@ namespace Employment
     {
         public string Name { get; set; }
         public decimal Salary { get; set; }
-        public decimal PensionFundTotal { get; set; }
-        public decimal ProviderName { get; set; }
+        public decimal Pension_Fund_Total { get; set; }
+        public string Provider_Name { get; set; }
 
         public List<Employee> GetEmployeeList()
         {

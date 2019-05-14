@@ -40,8 +40,8 @@ namespace Employment
                     {
                         Console.WriteLine("Name: " + employee.Name);
                         Console.WriteLine("Salary: £" + employee.Salary);
-                        Console.WriteLine("Pension Fund Total: £" + employee.PensionFundTotal);
-                        Console.WriteLine("Pension Provider: " + employee.ProviderName);
+                        Console.WriteLine("Pension Fund Total: £" + employee.Pension_Fund_Total);
+                        Console.WriteLine("Pension Provider: " + employee.Provider_Name);
                         Console.WriteLine();
                     }
 
