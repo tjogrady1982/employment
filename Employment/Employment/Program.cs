@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,14 +52,19 @@ namespace Employment
         private void ListEmployees()
         {
             var employees = new Employee();
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
             var listemployees = employees.GetEmployeeList();
+            timer.Stop();
+            Console.WriteLine("Time elapsed: {0:hh\\:mm\\:ss\\:fff}", timer.Elapsed);
 
-            foreach (var employee in listemployees)
+            //foreach (var employee in listemployees)
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine("Name: " + employee.Name);
-                Console.WriteLine("Salary: £" + employee.Salary);
-                Console.WriteLine("Pension Fund Total: £" + employee.Pension_Fund_Total);
-                Console.WriteLine("Pension Provider: " + employee.Provider_Name);
+                Console.WriteLine("Name: " + listemployees[i].Name);
+                Console.WriteLine("Salary: £" + listemployees[i].Salary);
+                Console.WriteLine("Pension Fund Total: £" + listemployees[i].Pension_Fund_Total);
+                Console.WriteLine("Pension Provider: " + listemployees[i].Provider_Name);
                 Console.WriteLine();
             }
         }
@@ -66,7 +72,11 @@ namespace Employment
         private void AddFivePercentToPension()
         {
             var employees = new Employee();
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
             employees.AddToPension();
+            timer.Stop();
+            Console.WriteLine("Time elapsed: {0:hh\\:mm\\:ss\\:fff}", timer.Elapsed);
             ListEmployees();
         }
     }
