@@ -16,7 +16,7 @@ namespace Employment
         public string Provider_Name { get; set; }
 
         public IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["EmploymentConnection"].ConnectionString);
-
+        
         public List<Employee> GetEmployeeList()
         {
             string Sqlstring = "Select * from employees_with_pensions";
@@ -26,7 +26,7 @@ namespace Employment
 
         public void AddToPension()
         {
-            db.Execute(@"exec add_to_employee_pension");
+            db.Execute(@"exec add_to_employee_pension",commandTimeout:500);
 
         }
     }
